@@ -5,6 +5,7 @@ export type FeedbackDocument = mongoose.Document & {
     name: string;
     rating: number;
     message: string;
+    hostelid: string;
 };
 
 const FeedbackSchema = new mongoose.Schema<FeedbackDocument>(
@@ -12,7 +13,8 @@ const FeedbackSchema = new mongoose.Schema<FeedbackDocument>(
         studentid: { type: String },
         name: String,
         message: String,
-        rating: Number
+        rating: Number,
+        hostelid: String
     },
     { timestamps: true }
 );
