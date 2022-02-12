@@ -11,7 +11,7 @@ cloudinary.v2.config({
 
 export function uploadImage(req: Request, res: Response) {
     const photo = req.files.photo;
-    cloudinary.v2.uploader.upload(photo.tempFilePath, function(error, result) {
+    cloudinary.v2.uploader.upload(photo.tempFilePath, function(error: any, result: any) {
         if (error) {
             console.log(error);
             return;

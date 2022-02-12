@@ -18,7 +18,7 @@
         }
     },
     "files": [
-        "request.d.ts"
+        "src/types/request.d.ts"
     ],
     "include": [
         "src/**/*"
