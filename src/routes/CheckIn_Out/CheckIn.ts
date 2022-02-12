@@ -1,11 +1,22 @@
 import { Request, Response } from "express";
 import { Attendence } from "../../models/Attendence";
 import { Student } from "../../models/Student";
+import { getDistance } from "../signup/Student.Signup";
+
+const college_location = "26.9124, 75.7873";
 
 export async function StudentCheckIn(req:Request, res: Response): Promise<void> {
     const studentid = req.body.studentid;
-    if(!studentid){
-        res.status(400).send({ message : "Student ID cannot be empty!"});
+    const location = req.body.location;
+
+    if(!studentid || !location){
+        res.status(400).send({ message : "Student ID/Location cannot be empty!"});
+        return;
+    }
+
+    const distance = await getDistance(location);
+    if(distance > 0.5){
+        res.status(400).send({ message : "You are not in the hostel radius!"});
         return;
     }
     // console.log(studentid);
