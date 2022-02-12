@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt-nodejs";
 import crypto from "crypto";
-import jwt from "jsonwebtoken";
 
 export type StudentDocument = mongoose.Document & {
     studentid: string;

@@ -5,7 +5,6 @@ import { MAP_QUEST_KEY } from "../../util/secrets";
 import { Attendence } from "../../models/Attendence";
 import { sendOTPEmail } from "../../service/mailer";
 import { createOTP } from "../../util/createOTP";
-import { createToken } from "../../service/jwt";
 
 const college_location = "Jaipur,Rajasthan";
 
