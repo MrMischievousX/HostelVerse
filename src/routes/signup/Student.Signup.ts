@@ -50,7 +50,12 @@ export const signupStudent = async (req: Request, res: Response) => {
         res.status(400).send({ message: "Student with that email already exists!" });
         return;
     }
-    
+
+    if(await Attendence.findOne({ studentid: req.body.studentid })){
+        res.status(400).send({ message: "Student with that studentid already exists!" });
+        return;
+    }
+
     const studentEntry = new Attendence({
         studentid: req.body.studentid
     });
