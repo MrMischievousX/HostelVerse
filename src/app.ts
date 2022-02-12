@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import lusca from "lusca";
 import passport from "passport";
 import helmet from "helmet";
+import cors from "cors";
 // MongoDB Imports
 import { connectHostel } from "./database/Hostel.Connectiion";
 import { connectAdminDB } from "./database/Admin.Connection";
@@ -44,7 +45,7 @@ app.use(helmet());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(lusca.xframe("SAMEORIGIN"));
