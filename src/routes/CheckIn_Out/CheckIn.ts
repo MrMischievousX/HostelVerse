@@ -15,6 +15,7 @@ export async function StudentCheckIn(req:Request, res: Response): Promise<void> 
     }
 
     const distance = await getDistance(location);
+    console.log("distance",distance);
     if(distance > 0.5){
         res.status(400).send({ message : "You are not in the hostel radius!"});
         return;
