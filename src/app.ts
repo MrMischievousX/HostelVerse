@@ -5,6 +5,7 @@ import lusca from "lusca";
 import passport from "passport";
 import helmet from "helmet";
 import cors from "cors";
+import fileupload from "express-fileupload";
 // MongoDB Imports
 import { connectHostel } from "./database/Hostel.Connectiion";
 import { connectAdminDB } from "./database/Admin.Connection";
@@ -41,6 +42,9 @@ connectWardenDB();
 // Express configuration
 app.set("port", process.env.PORT || 3000);
 app.use(helmet());
+app.use(fileupload({
+    useTempFiles: true
+}));
 // app.use(limiter);
 app.use(compression());
 app.use(bodyParser.json());

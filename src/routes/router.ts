@@ -2,6 +2,7 @@ import { Router } from "express";
 import { AllotHostel } from "../service/HostelAllotment";
 import { sendOTPEmail } from "../service/mailer";
 import { resendOTP } from "../service/resendOTP";
+import { uploadImage } from "../util/uploadImage";
 import { createHostel } from "./admin/createHostel";
 import { createRoom } from "./admin/createRoom";
 import { createWardenAccount } from "./admin/createWardenAccount";
@@ -83,3 +84,4 @@ route.get("/paymentDetails", getPaymentDetails);
 route.post("/admin/profile", defaultAdmin);
 
 route.post("/resendOTP", resendOTP);
+route.post("/sendPhoto", uploadImage);

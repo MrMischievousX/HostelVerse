@@ -28,7 +28,9 @@ if(!SENDGRID_API_KEY){
 // export const SENDGRID_PASSWORD = process.env["SENDGRID_PASSWORD"];
 // export const GMAIL_EMAIL = process.env["GMAIL_EMAIL"];
 // export const GMAIL_PSSWD = process.env["GMAIL_PSSWD"];
-
+export const CLOUDINARY_NAME = process.env["CLOUDINARY_NAME"];
+export const CLOUDINARY_KEY = process.env["CLOUDINARY_KEY"];
+export const CLOUDINARY_SECRET = process.env["CLOUDINARY_SECRET"];
 export const JWT_SECRET = process.env["JWT_SECRET"];
 if(!JWT_SECRET) {
     logger.error("No JWT_SECRET environment variable. Set and restart server.");

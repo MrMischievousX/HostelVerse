@@ -6,7 +6,7 @@ import { Attendence } from "../../models/Attendence";
 import { sendOTPEmail } from "../../service/mailer";
 import { createOTP } from "../../util/createOTP";
 
-const college_location = "Jaipur,Rajasthan";
+const college_location = "26.9124, 75.7873";
 
 
 async function getDistance(location: string): Promise<number> {
@@ -59,8 +59,7 @@ export const signupStudent = async (req: Request, res: Response) => {
     const studentEntry = new Attendence({
         studentid: req.body.studentid
     });
-   await studentEntry.save();
-
+    await studentEntry.save();
     const distance = await getDistance(req.body.location);
 
     const student = new Student();

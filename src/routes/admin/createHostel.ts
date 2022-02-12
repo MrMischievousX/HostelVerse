@@ -1,5 +1,6 @@
 import { Hostel } from "../../models/Hostel";
 import { Request, Response } from "express";
+import { uploadImage } from "../../util/uploadImage";
 
 /**
  * Create a hostel entry
@@ -14,7 +15,6 @@ export const createHostel = async (req: Request, res: Response): Promise<void> =
         return;
     }
 
-
     const hostel = new Hostel();
     hostel.hostelid = req.body.hostelid;
     hostel.hostelname = req.body.name;
@@ -25,6 +25,7 @@ export const createHostel = async (req: Request, res: Response): Promise<void> =
     }
     hostel.totalrooms = req.body.totalrooms;
     hostel.roomsleft = req.body.totalrooms;
+    hostel.image = req.body.image;
     hostel.save()
     .then(data => {
         res.send(data);

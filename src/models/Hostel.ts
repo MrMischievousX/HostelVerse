@@ -8,6 +8,11 @@ export type HostelDocument = mongoose.Document & {
     totalrooms: number;
     roomsleft: number;
     fees: number;
+    description: string;
+    roomtype: string;
+    overallRating: number;
+    numberOfReviews: number;
+    image: string;
 };
 
 const HostelSchema = new mongoose.Schema<HostelDocument>(
@@ -18,7 +23,12 @@ const HostelSchema = new mongoose.Schema<HostelDocument>(
         wardenid: String,
         totalrooms: Number,
         roomsleft: Number,
-        fees: Number
+        fees: Number,
+        description: String,
+        roomtype: { type: String, default: "Single" },
+        overallRating: { type: Number, default: 0 },
+        numberOfReviews: { type: Number, default: 0 },
+        image: String
     }
 );
 
