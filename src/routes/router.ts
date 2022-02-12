@@ -86,7 +86,7 @@ route.post("/admin/profile", defaultAdmin);
 
 route.post("/resendOTP", resendOTP);
 route.post("/sendPhoto", uploadImage);
-route.patch("/student/profile", StudentProfileUpdate);
+route.post("/student/profile", StudentProfileUpdate);
 route.post("/warden/removeStudent", removeStudent);
 route.post("/admin/removeStudent", removeStudent);
 route.post("/getHostel", getHostel);
