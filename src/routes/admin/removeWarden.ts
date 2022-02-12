@@ -10,15 +10,15 @@ export async function removeWarden(req: Request, res: Response){
         });
         return;
     }
-    const email = b.email;
-    if(!email){
+    const wardenid = b.wardenid;
+    if(!wardenid){
         res.status(400).send({
             error: true,
             message: "Please make a valid request!"
         });
         return;
     }
-    Warden.deleteOne({email: email})
+    Warden.deleteOne({wardenid: wardenid})
     .then(() => {
         res.status(200).send({
             success: true,
