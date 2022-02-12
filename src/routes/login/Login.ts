@@ -25,6 +25,14 @@ export async function Login(req: Request, res: Response, next: NextFunction): Pr
     }
     if(role == "student"){
         const student = await Student.findOne({ email: email });
+        if(student.active == false){
+            res.status(400).send({
+                error: true,
+                message: "Please verify your email via OTP to login!"
+            });
+            return;
+        }
+
         if(student){
             student.comparePassword(password, (err: Error, isMatch: boolean) => {
                 if(err){

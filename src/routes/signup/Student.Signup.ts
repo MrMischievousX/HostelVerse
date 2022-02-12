@@ -45,8 +45,12 @@ export const signupStudent = async (req: Request, res: Response) => {
           error: true,
           message: "Couldn't send verification email.",
         });
-      }
-
+    }
+    if(await Attendence.findOne({ email: req.body.email })){
+        res.status(400).send({ message: "Student with that email already exists!" });
+        return;
+    }
+    
     const studentEntry = new Attendence({
         studentid: req.body.studentid
     });
