@@ -19,7 +19,7 @@ export async function currentState(req: Request, res: Response): Promise<void> {
             const last_checkout = studentLog.last_checkout;
             if (last_checkin > last_checkout || last_checkout == null) {
                 res.send({ message: "Checked in" });
-            } else if(last_checkin < last_checkout) {
+            } else if(last_checkin < last_checkout || (last_checkout == null && last_checkin == null)) {
                 res.send({ message: "Checked out" });
             }
         })
