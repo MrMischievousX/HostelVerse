@@ -18,7 +18,7 @@ import { StudentLogin } from "./login/Student.Login";
 import { WardenLogin } from "./login/Warden.login";
 import { getPaymentDetails } from "./payments/paymentDetail";
 import { AdminProfile, defaultAdmin, UpdateAdminProfile } from "./profile/AdminProfile";
-import { StudentProfile } from "./profile/StudentProfile";
+import { StudentProfile, StudentProfileUpdate } from "./profile/StudentProfile";
 import { WardenProfile } from "./profile/WardenProfile";
 import { activateAccount } from "./signup/activateAccount";
 import { signupStudent } from "./signup/Student.Signup";
@@ -85,3 +85,4 @@ route.post("/admin/profile", defaultAdmin);
 
 route.post("/resendOTP", resendOTP);
 route.post("/sendPhoto", uploadImage);
+route.patch("/student/profile", StudentProfileUpdate);

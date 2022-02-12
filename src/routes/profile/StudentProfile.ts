@@ -22,5 +22,12 @@ export async function StudentProfileUpdate(req: Request, res: Response): Promise
         return;
     }
     const b = req.body;
-    
+    if(!b.studentid){
+        res.status(400).send({ message : "Studentid cannot be empty!"});
+        return;
     }
+
+    Student.findOneAndUpdate({ studentid: b.studentid }, b, { new: true })
+    .then(data => { res.send(data); })
+    .catch(err => { res.status(404).send("Student not found with that studentid!");});
+}
