@@ -19,10 +19,10 @@ export const MAP_QUEST_KEY = process.env["MAP_QUEST_KEY"];
 export const REDIS_HOSTNAME = process.env["REDIS_HOSTNAME"];
 export const REDIS_PASSWORD = process.env["REDIS_PASSWORD"];
 export const REDIS_PORT = process.env["REDIS_PORT"];
-export const SENDGRID_USER = process.env["SENDGRID_USER"];
-export const SENDGRID_PASSWORD = process.env["SENDGRID_PASSWORD"];
-export const GMAIL_EMAIL = process.env["GMAIL_EMAIL"];
-export const GMAIL_PSSWD = process.env["GMAIL_PSSWD"];
+// export const SENDGRID_USER = process.env["SENDGRID_USER"];
+// export const SENDGRID_PASSWORD = process.env["SENDGRID_PASSWORD"];
+// export const GMAIL_EMAIL = process.env["GMAIL_EMAIL"];
+// export const GMAIL_PSSWD = process.env["GMAIL_PSSWD"];
 
 export const JWT_SECRET = process.env["JWT_SECRET"];
 if(!JWT_SECRET) {
