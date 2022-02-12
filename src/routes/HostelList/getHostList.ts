@@ -17,10 +17,8 @@ export async function getHostel(req: Request, res: Response){
     
         const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname numberOfReviews overallRating")
 
-        const feedbackList = Feedback.find({ hostelid: hostel.hostelid }).select("studentid name rating message");
         res.send({ 
-            hostel: hostel,
-            feedbackList: feedbackList
+            hostel: hostel
          });
     }
     catch{

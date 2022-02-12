@@ -8,6 +8,7 @@ import { createRoom } from "./admin/createRoom";
 import { createWardenAccount } from "./admin/createWardenAccount";
 import { getDashboard } from "./admin/Dashboard";
 import { viewFeedback } from "./admin/Feedback";
+import { removeWarden } from "./admin/removeWarden";
 import { viewWarden } from "./admin/WardenList";
 import { StudentCheckIn } from "./CheckIn_Out/CheckIn";
 import { StudentCheckOut } from "./CheckIn_Out/CheckOut";
@@ -84,6 +85,7 @@ route.get("/admin/Dashboard", getDashboard);
 route.get("/admin/viewWarden", viewWarden);
 route.get("/paymentDetails", getPaymentDetails);
 route.post("/admin/profile", defaultAdmin);
+route.post("/admin/removeWarden", removeWarden);
 
 route.post("/resendOTP", resendOTP);
 route.post("/sendPhoto", uploadImage);
