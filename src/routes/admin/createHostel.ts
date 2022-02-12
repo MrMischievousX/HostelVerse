@@ -19,6 +19,7 @@ export const createHostel = async (req: Request, res: Response): Promise<void> =
     hostel.hostelid = req.body.hostelid;
     hostel.hostelname = req.body.name;
     hostel.location = req.body.location;
+    hostel.fees = req.body.fees;
     if(req.body.wardenid){
         hostel.wardenid = req.body.wardenid;
     }
