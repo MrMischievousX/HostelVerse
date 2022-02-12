@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { CLOUDINARY_NAME } from "./secrets";
+import { CLOUDINARY_KEY, CLOUDINARY_NAME, CLOUDINARY_SECRET } from "./secrets";
 
 import cloudinary from "cloudinary";
 
 cloudinary.v2.config({ 
     cloud_name: CLOUDINARY_NAME, 
-    api_key: '726876361713356', 
-    api_secret: 'ZqmfrAKYPnnswUvV2gp_5Njp_jQ' 
+    api_key: CLOUDINARY_KEY, 
+    api_secret: CLOUDINARY_SECRET
 });
 
 export function uploadImage(req: Request, res: Response) {
