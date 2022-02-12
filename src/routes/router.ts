@@ -82,4 +82,4 @@ route.get("/admin/viewWarden", viewWarden);
 route.get("/paymentDetails", getPaymentDetails);
 route.post("/admin/profile", defaultAdmin);
 
-route.get("/resendOTP", resendOTP);
+route.post("/resendOTP", resendOTP);

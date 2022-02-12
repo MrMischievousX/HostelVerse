@@ -15,7 +15,7 @@ export async function Login(req: Request, res: Response, next: NextFunction): Pr
     }
     const email = b.email;
     const password = b.password;
-    const role = b.role;
+    let role = b.role;
     if(!email || !password || !role){
         res.status(400).send({
             error: true,
@@ -23,6 +23,7 @@ export async function Login(req: Request, res: Response, next: NextFunction): Pr
         });
         return;
     }
+    role = role.toLowerCase();
     if(role == "student"){
         const student = await Student.findOne({ email: email });
         if(student.active == false){

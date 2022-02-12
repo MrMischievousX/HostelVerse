@@ -19,6 +19,11 @@ export const MAP_QUEST_KEY = process.env["MAP_QUEST_KEY"];
 export const REDIS_HOSTNAME = process.env["REDIS_HOSTNAME"];
 export const REDIS_PASSWORD = process.env["REDIS_PASSWORD"];
 export const REDIS_PORT = process.env["REDIS_PORT"];
+export const SENDGRID_API_KEY = process.env["SENDGRID_API_KEY"];
+if(!SENDGRID_API_KEY){
+    logger.error("SENDGRID_API_KEY is not set");
+    process.exit(1);
+}
 // export const SENDGRID_USER = process.env["SENDGRID_USER"];
 // export const SENDGRID_PASSWORD = process.env["SENDGRID_PASSWORD"];
 // export const GMAIL_EMAIL = process.env["GMAIL_EMAIL"];
