@@ -3,7 +3,7 @@ import { Feedback } from "../../models/Feedback";
 import { Hostel } from "../../models/Hostel";
 
 export async function getHostelList(req: Request, res: Response): Promise<void> {
-    const hostelList = await Hostel.find({}, null, { sort: { hostelid: 1 } }).select("hostelid hostelname location totalrooms roomsleft fees wardenid ");
+    const hostelList = await Hostel.find({}, null, { sort: { hostelid: 1 } }).select("hostelid hostelname location totalrooms roomsleft fees wardenid description roomtype");
    res.send(hostelList);
 }
 
@@ -15,7 +15,7 @@ export async function getHostel(req: Request, res: Response){
             return;
         }
     
-        const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname numberOfReviews overallRating")
+        const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname numberOfReviews overallRating hostelid  location totalrooms roomsleft fees wardenid description roomtype")
 
         res.send({ 
             hostel: hostel
