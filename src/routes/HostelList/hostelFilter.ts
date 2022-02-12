@@ -10,15 +10,7 @@ export async function hostelFilterByFees(req: Request, res: Response): Promise<v
         });
         return;
     }
-    const hostelid = b.hostelid;
-    // const fess = b.fess;
-    if(!hostelid){
-        res.status(400).send({
-            error: true,
-            message: "Please make a valid request!"
-        });
-        return;
-    }
+
     const low = b.low;
     const high = b.high;
     if(!low || !high){
