@@ -8,19 +8,24 @@ export async function getHostelList(req: Request, res: Response): Promise<void> 
 }
 
 export async function getHostel(req: Request, res: Response){
-    const b = req.body;
-    if(!b.hostelid){
-        res.status(400).send({ message : "Hostelid cannot be empty!"});
-        return;
+    try{
+        const b = req.body;
+        if(!b.hostelid){
+            res.status(400).send({ message : "Hostelid cannot be empty!"});
+            return;
+        }
+    
+        const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname image numberOfReviews overallRating");
+        if(!hostel){
+            res.status(404).send("Hostel not found!");
+        }
+        const feedbackList = Feedback.find({ hostelid: b.hostelid }).select("studentid name rating message");
+        res.send({ 
+            hostel: hostel,
+            feedbackList: feedbackList
+         });
     }
-
-    const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname image numberOfReviews overallRating");
-    if(!hostel){
-        res.status(404).send("Hostel not found!");
+    catch{
+        res.status(500).send("Error occured!");
     }
-    const feedbackList = Feedback.find({ hostelid: b.hostelid }).select("studentid name rating message");
-    res.send({ 
-        hostel: hostel,
-        feedbackList: feedbackList
-     });
 }
