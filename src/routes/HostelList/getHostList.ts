@@ -15,7 +15,7 @@ export async function getHostel(req: Request, res: Response){
             return;
         }
     
-        const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname image numberOfReviews overallRating");
+        const hostel = await Hostel.findOne({ hostelid: b.hostelid }).select(" hostelname numberOfReviews overallRating");
         if(!hostel){
             res.status(404).send("Hostel not found!");
         }
