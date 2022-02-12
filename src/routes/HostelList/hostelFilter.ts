@@ -28,7 +28,7 @@ export async function hostelFilterByFess(req: Request, res: Response): Promise<v
         });
         return;
     }
-    const HostelList = await filterByFees(low, high);
+    const HostelList = await filterByFees(+low, +high);
     res.status(200).send({
         success: true,
         HostelList: HostelList
