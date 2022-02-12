@@ -14,6 +14,7 @@ import { StudentCheckIn } from "./CheckIn_Out/CheckIn";
 import { StudentCheckOut } from "./CheckIn_Out/CheckOut";
 import { currentState } from "./CheckIn_Out/currentState";
 import { getHostel, getHostelList } from "./HostelList/getHostList";
+import { hostelFilterByFees } from "./HostelList/hostelFilter";
 import { AdminLogin } from "./login/Admin.Login";
 import { Login } from "./login/Login";
 import { StudentLogin } from "./login/Student.Login";
@@ -96,3 +97,4 @@ route.post("/admin/removeStudent", removeStudent);
 route.post("/getHostel", getHostel);
 route.post("/admin/signup", createAdmin);
 route.post("/student/currentState", currentState);
+route.post("/hostelFilterByFees", hostelFilterByFees)

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { filterByFees } from "../../service/HostelFilter";
 
-export async function hostelFilterByFess(req: Request, res: Response): Promise<void> {
+export async function hostelFilterByFees(req: Request, res: Response): Promise<void> {
     const b = req.body;
     if(!b){
         res.status(400).send({
@@ -11,8 +11,8 @@ export async function hostelFilterByFess(req: Request, res: Response): Promise<v
         return;
     }
     const hostelid = b.hostelid;
-    const fess = b.fess;
-    if(!hostelid || !fess){
+    // const fess = b.fess;
+    if(!hostelid){
         res.status(400).send({
             error: true,
             message: "Please make a valid request!"
