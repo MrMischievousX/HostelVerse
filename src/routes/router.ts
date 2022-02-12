@@ -74,7 +74,7 @@ route.post("/student/Feedback", createFeedback);
 
 route.post("/warden/RoomIssues", getRoomIssues);
 route.patch("/warden/RoomIssues", resolveRoomIssue);
-route.post("/warden/LeaveApplications", getLeaveApplications);
+route.get("/warden/LeaveApplications", getLeaveApplications);
 route.patch("/warden/LeaveApplications", acceptLeaveApplication);
 
 route.post("/warden/announcement", createAnnouncement);
