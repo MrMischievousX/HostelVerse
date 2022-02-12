@@ -21,6 +21,7 @@ import { AdminProfile, defaultAdmin, UpdateAdminProfile } from "./profile/AdminP
 import { StudentProfile, StudentProfileUpdate } from "./profile/StudentProfile";
 import { WardenProfile } from "./profile/WardenProfile";
 import { activateAccount } from "./signup/activateAccount";
+import { createAdmin } from "./signup/Admin.Signup";
 import { signupStudent } from "./signup/Student.Signup";
 import { createFeedback } from "./student/Feedback";
 import { createLeaveApplication } from "./student/leaveApplication";
@@ -90,3 +91,4 @@ route.post("/student/profile", StudentProfileUpdate);
 route.post("/warden/removeStudent", removeStudent);
 route.post("/admin/removeStudent", removeStudent);
 route.post("/getHostel", getHostel);
+route.post("/admin/signup", createAdmin);
