@@ -25,7 +25,7 @@ export const createHostel = async (req: Request, res: Response): Promise<void> =
     }
     hostel.totalrooms = req.body.totalrooms;
     hostel.roomsleft = req.body.totalrooms;
-    hostel.image = req.body.image;
+    hostel.image = req.body;
     hostel.save()
     .then(data => {
         res.send(data);
