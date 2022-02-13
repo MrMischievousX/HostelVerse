@@ -26,6 +26,13 @@ export async function Login(req: Request, res: Response, next: NextFunction): Pr
     role = role.toLowerCase();
     if(role == "student"){
         const student = await Student.findOne({ email: email });
+        if(!student){
+            res.status(400).send({
+                error: true,
+                message: "Student not found!"
+            });
+            return;
+        }
         if(student.active == false){
             res.status(400).send({
                 error: true,
