@@ -13,6 +13,9 @@ export async function StudentAttendence(req: Request, res: Response): Promise<vo
         const last_checkin = studentEntry.last_checkin;
         const last_checkout = studentEntry.last_checkout;
         let attendence = "";
+        if(last_checkin == null || last_checkout == null){
+            attendence = "Absent";
+        }
         if(!isToday(last_checkin) || !isToday(last_checkout)){
             attendence = "Absent";
         }
